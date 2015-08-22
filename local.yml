@@ -1,0 +1,30 @@
+---
+
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: Packages | Install apt packages
+      apt: state=installed update_cache=yes name={{ item }}
+      with_items:
+        - emacs
+        - banshee
+        - openssh-server
+        - python-dev
+        - python-pip
+        - python-virtualenv
+        - i3
+        - virtualbox
+        - tmux
+        - htop
+        - firefox
+        - git
+        - acpi
+
+    - name: Packages | Upgrade pip
+      pip: name=pip state=latest
+
+    - file: path=~/workspace state=directory
+
+    - git: repo=git://github.com/farridav/dotfiles.git dest=~/workspace/dotfiles accept_hostkey=yes
+
+    - shell: ~/workspace/dotfiles/setup.sh 
