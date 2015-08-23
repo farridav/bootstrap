@@ -23,8 +23,17 @@
     - name: Packages | Upgrade pip
       pip: name=pip state=latest
 
-    - file: path=~/workspace state=directory
+    - name: Directories | Make workspace
+      file: path=~/workspace state=directory
 
-    - git: repo=git://github.com/farridav/dotfiles.git dest=~/workspace/dotfiles accept_hostkey=yes
+    - name: Configuration | Clone dotfiles
+      git: repo=git://github.com/farridav/dotfiles.git dest=~/workspace/dotfiles accept_hostkey=yes
 
-    - shell: ~/workspace/dotfiles/setup.sh 
+    - name: Configuration | Setup dotfiles
+      shell: ~/workspace/dotfiles/setup.sh
+
+    - name: Packages | Download vagrant
+      get_url: url=https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb dest=/tmp/
+
+    - name: Packages | Install vagrant
+      apt: deb=/tmp/vagrant_1.7.4_x86_64.deb
