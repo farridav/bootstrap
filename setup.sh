@@ -1,12 +1,12 @@
 
 # Prerequisites:
 # - install a fresh copy of OS
-# - ensure public key is generated and registered with github a/c 
+# - ensure public key is generated and registered with github a/c
 
 set -e
 
-echo "Installing virtualenv"
-sudo apt-get install python-virtualenv
+echo "Installing build dependencies"
+sudo apt-get install build-essential python-dev python-virtualenv
 
 echo "Making virtualenv if necessary"
 if [ ! -d .venv ]; then
