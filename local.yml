@@ -7,7 +7,7 @@
       apt: state=installed update_cache=yes name={{ item }}
       with_items:
         - emacs
-        - banshee
+        - rhythmbox
         - openssh-server
         - python-dev
         - python-pip
@@ -19,6 +19,8 @@
         - firefox
         - git
         - acpi
+        - unrar
+        - xclip
 
     - name: Packages | Upgrade pip
       pip: name=pip state=latest
