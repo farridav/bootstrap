@@ -39,3 +39,12 @@
 
     - name: Packages | Install vagrant
       apt: deb=/tmp/vagrant_1.7.4_x86_64.deb
+
+    - name: Packages | Download terraform
+      get_url: url=https://releases.hashicorp.com/terraform/0.6.6/terraform_0.6.6_linux_amd64.zip dest=/tmp/
+
+    - name: Directories | Make terraform bin directory
+      file: path=/usr/bin/terraform state=directory
+
+    - name: Packages | Install terraform
+      unarchive: src=/tmp/terraform_0.6.6_linux_amd64.zip dest=/usr/bin/terraform
