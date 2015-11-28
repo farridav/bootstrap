@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  sudo: yes
+  roles:
+    - local
+    - role: dochang.docker
+      docker_users: david
+      tags: docker

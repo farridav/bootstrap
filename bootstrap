@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # Prerequisites:
 # - install a fresh copy of OS
@@ -20,6 +21,6 @@ echo "Installing requirements"
 pip install -r requirements.txt
 
 echo "Running playbook"
-ansible-playbook --ask-become-pass -i hosts -c local -b local.yml
+ansible-playbook --ask-become-pass -i hosts -c local -b playbook.yml "$@"
 
 set +e

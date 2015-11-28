@@ -1,0 +1,34 @@
+---
+
+- name: Packages | Install apt packages
+  apt: state=installed update_cache=yes name={{ item }}
+  with_items: local_apt_pkgs
+
+- name: Packages | Upgrade pip
+  pip: name=pip state=latest
+
+- name: Directories | Make workspace
+  file: path=~/workspace state=directory
+
+- name: Configuration | Clone dotfiles
+  git: repo=git://github.com/farridav/dotfiles.git dest=~/workspace/dotfiles accept_hostkey=yes
+
+- name: Configuration | Setup dotfiles
+  shell: ~/workspace/dotfiles/setup.sh
+
+- name: Packages | Manually download debs/zips
+  get_url: url={{ item.url }} dest=/tmp/{{ item.pkg_name }} validate_certs=no
+  with_items:
+    - "{{ local_debs }}"
+    - "{{ local_zips }}"
+  tags: manual
+
+- name: Packages | Manually install debs
+  apt: deb=/tmp/{{ item.pkg_name }}
+  with_items: local_debs
+  tags: manual
+
+- name: Packages | Manually install zips
+  unarchive: src=/tmp/{{ item.pkg_name }} dest={{ item.pkg_dest }}
+  with_items: local_zips
+  tags: manual

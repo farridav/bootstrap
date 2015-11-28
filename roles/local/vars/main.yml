@@ -1,0 +1,31 @@
+---
+
+local_debs:
+  - url: https://update.gitter.im/linux64/gitter_2.4.0_amd64.deb
+    pkg_name: gitter_2.4.0_amd64.deb
+
+  - url: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
+    pkg_name: vagrant_1.7.4_x86_64.deb
+
+local_zips:
+  - url: https://releases.hashicorp.com/terraform/0.6.6/terraform_0.6.6_linux_amd64.zip
+    pkg_name: terraform_0.6.6_linux_amd64.zip
+    pkg_dest: /usr/bin/
+
+local_apt_pkgs:
+  - emacs
+  - rhythmbox
+  - openssh-server
+  - python-dev
+  - python-pip
+  - python-virtualenv
+  - i3
+  - virtualbox
+  - tmux
+  - htop
+  - firefox
+  - git
+  - acpi
+  - unrar
+  - xclip
+  - awscli
