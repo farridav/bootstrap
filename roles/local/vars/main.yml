@@ -29,3 +29,5 @@ local_apt_pkgs:
   - unrar
   - xclip
   - awscli
+  - gnome-screenshot
+  - uzbl
