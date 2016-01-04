@@ -7,7 +7,7 @@
 set -e
 
 echo "Installing build dependencies"
-sudo apt-get install build-essential python-dev python-virtualenv
+sudo apt-get install -qq build-essential python-dev python-virtualenv
 
 echo "Making virtualenv if necessary"
 if [ ! -d .venv ]; then
@@ -18,7 +18,7 @@ echo "Activating virtualenv"
 . .venv/bin/activate
 
 echo "Installing requirements"
-pip install -r requirements.txt
+pip install -q -r requirements.txt
 
 echo "Running playbook"
 ansible-playbook --ask-become-pass -i hosts -c local -b playbook.yml "$@"
