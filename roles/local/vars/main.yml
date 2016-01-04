@@ -13,21 +13,59 @@ local_zips:
     pkg_dest: /usr/bin/
 
 local_apt_pkgs:
+  # My editor of choice
   - emacs
+
+  # Music player
   - rhythmbox
+
+  # For incoming ssh connections
   - openssh-server
+
+  # python dev package
   - python-dev
+
+  # pip
   - python-pip
+
+  # virtual environments for python projects
   - python-virtualenv
+
+  # Amazing tiling Window manager
   - i3
+
+  # Virtualisation backend for my vagrant boxes
   - virtualbox
+
+  # Terminal multiplexer (screen on steroids)
   - tmux
+
+  # CLI GUI for top (Process monitoring)
   - htop
-  - firefox
+
+  # VCS
   - git
+
+  # For mojnitorihng battery consumption
   - acpi
+
+  # For unraring rar archives
   - unrar
+
+  # For using the clipboard on the command line
   - xclip
+
+  # For interacting with AWS API
   - awscli
+
+  # For taking screenshots
   - gnome-screenshot
+
+  # Web browsing (Pending removal, see below)
+  - firefox
+
+  # Lightweight Web browser
   - uzbl
+
+  # Caching server for uzbl
+  - polipo
