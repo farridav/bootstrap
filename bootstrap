@@ -21,6 +21,6 @@ echo "Installing requirements"
 pip install -q -r requirements.txt
 
 echo "Running playbook"
-ansible-playbook --ask-become-pass -i hosts -c local -b playbook.yml "$@"
+ansible-playbook --ask-become-pass -i hosts -c local -b playbooks/pc.yml "$@"
 
 set +e
