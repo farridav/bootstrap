@@ -19,6 +19,9 @@ local_apt_pkgs:
   # Music player
   - rhythmbox
 
+  # Extra codecs required for playing music
+  - lubuntu-restricted-extras
+
   # For incoming ssh connections
   - openssh-server
 
