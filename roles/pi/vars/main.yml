@@ -1,0 +1,4 @@
+---
+
+vnc_pass: "pass"
+vnc_pass_path: /home/pi/.vnc/passwd

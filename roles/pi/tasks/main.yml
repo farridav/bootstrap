@@ -1,0 +1,42 @@
+---
+
+- apt: name="{{ item }}" state=absent purge=yes
+  become: yes
+  with_items:
+    - wolfram-engine
+    - scratch
+    - oracle-java7-jdk
+    - oracle-java9-jdk
+    - omxplayer
+    - penguinspuzzle
+  tags: packages
+
+- apt: name="{{ item }}" state=latest
+  become: yes
+  with_items:
+    - emacs
+    - tightvncserver
+    - i3
+    - git
+  tags: packages
+
+- name: Autoremove unused packages
+  command: apt-get -y autoremove
+  become: yes
+
+- name: Setup our vnc password
+  shell: echo "{{ vnc_pass }}" | vncpasswd -f > "{{ vnc_pass_path }}"
+  tags: passwords
+
+- copy: src=vncboot dest=/etc/init.d/vncboot mode=0755 owner=root group=root
+  become: yes
+
+- command: update-rc.d lightdm remove
+  become: yes
+
+- command: update-rc.d vncboot defaults
+  become: yes
+
+- name: restart vnc
+  service: name=vncboot state=restarted
+  become: yes

@@ -1,6 +1,7 @@
 ---
 
-- hosts: all
+- name: Provision my pc
+  hosts: pc
   sudo: yes
   roles:
     - local

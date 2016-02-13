@@ -22,6 +22,9 @@ local_apt_pkgs:
   # Extra codecs required for playing music
   - lubuntu-restricted-extras
 
+  # Sound & Volume control
+  - pulseaudio
+
   # For incoming ssh connections
   - openssh-server
 
@@ -53,7 +56,8 @@ local_apt_pkgs:
   - acpi
 
   # For unraring rar archives
-  - unrar
+  - unrar-free
+  - unzip
 
   # For using the clipboard on the command line
   - xclip
@@ -61,14 +65,20 @@ local_apt_pkgs:
   # For interacting with AWS API
   - awscli
 
-  # For taking screenshots
-  - gnome-screenshot
-
-  # Web browsing (Pending removal, see below)
+  # Failsafe Web browsing
   - firefox
 
-  # Lightweight Web browser
+  # Lightweight keyboard controlled Web browser
   - uzbl
 
   # Caching server for uzbl
   - polipo
+
+  # Grep on steroids
+  - silversearcher-ag
+
+  # for vnc sessions with my pi
+  - xtightvncviewer
+
+  # for network probing
+  - nmap
