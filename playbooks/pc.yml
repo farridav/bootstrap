@@ -3,8 +3,27 @@
 - name: Provision my pc
   hosts: pc
   sudo: yes
+  vars:
+    docker_users: david
+    postgresql_version: 9.5
+    postgresql_ext_install_contrib: yes
+    postgresql_ext_install_dev_headers: yes
+    postgresql_locale_parts:
+      - 'en_GB'
+      - 'UTF-8'
+
+    postgresql_databases:
+      - name: circle_test
+
+    postgresql_users:
+      - name: ubuntu
+
+    postgresql_user_privileges:
+      - name: ubuntu
+        db: circle_test
+        role_attr_flags: CREATEDB,NOSUPERUSER
+
   roles:
     - local
-    - role: dochang.docker
-      docker_users: david
-      tags: docker
+    #- role: dochang.docker
+    - role: ANXS.postgresql
