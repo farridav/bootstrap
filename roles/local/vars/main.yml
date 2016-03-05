@@ -8,8 +8,8 @@ local_debs:
     pkg_name: vagrant_1.7.4_x86_64.deb
 
 local_zips:
-  - url: https://releases.hashicorp.com/terraform/0.6.6/terraform_0.6.6_linux_amd64.zip
-    pkg_name: terraform_0.6.6_linux_amd64.zip
+  - url: https://releases.hashicorp.com/terraform/0.6.11/terraform_0.6.11_linux_amd64.zip
+    pkg_name: terraform_0.6.11_linux_amd64.zip
     pkg_dest: /usr/bin/
 
 local_apt_pkgs:
